@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Not a meaningful invoice: a schema-valid FA(3) document that uses as many optional parts of the schema as possible.
+     It is the base for the mutation test in tools/check_pl.py (all names and numbers are fictional). -->
+<Faktura xmlns="http://crd.gov.pl/wzor/2025/06/25/13775/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Naglowek>
+    <KodFormularza kodSystemowy="FA (3)" wersjaSchemy="1-0E">FA</KodFormularza>
+    <WariantFormularza>3</WariantFormularza>
+    <DataWytworzeniaFa>2026-10-08T09:30:00.250+02:00</DataWytworzeniaFa>
+    <SystemInfo>eos e-invoice test</SystemInfo>
+  </Naglowek>
+  <Podmiot1>
+    <PrefiksPodatnika>PL</PrefiksPodatnika>
+    <NrEORI>PL999100200900000</NrEORI>
+    <DaneIdentyfikacyjne>
+      <NIP>9991002009</NIP>
+      <Nazwa>Stolarnia Przykładowa Sp. z o.o.</Nazwa>
+    </DaneIdentyfikacyjne>
+    <Adres>
+      <KodKraju>PL</KodKraju>
+      <AdresL1>ul. Warsztatowa 12</AdresL1>
+      <AdresL2>00-950 Warszawa</AdresL2>
+      <GLN>5909990000015</GLN>
+    </Adres>
+    <AdresKoresp>
+      <KodKraju>PL</KodKraju>
+      <AdresL1>skr. poczt. 17</AdresL1>
+    </AdresKoresp>
+    <DaneKontaktowe>
+      <Email>biuro@stolarnia-przykladowa.example</Email>
+      <Telefon>+48 22 555 01 42</Telefon>
+    </DaneKontaktowe>
+    <DaneKontaktowe>
+      <Telefon>225550143</Telefon>
+    </DaneKontaktowe>
+    <DaneKontaktowe/>
+    <StatusInfoPodatnika>2</StatusInfoPodatnika>
+  </Podmiot1>
+  <Podmiot2>
+    <NrEORI>DE1234567890123</NrEORI>
+    <DaneIdentyfikacyjne>
+      <KodUE>DE</KodUE>
+      <NrVatUE>987654321</NrVatUE>
+      <Nazwa>Café Morgenrot Muster GmbH</Nazwa>
+    </DaneIdentyfikacyjne>
+    <Adres>
+      <KodKraju>DE</KodKraju>
+      <AdresL1>Lindenstraße 8</AdresL1>
+      <AdresL2>53111 Bonn</AdresL2>
+    </Adres>
+    <AdresKoresp>
+      <KodKraju>DE</KodKraju>
+      <AdresL1>Postfach 100</AdresL1>
+    </AdresKoresp>
+    <DaneKontaktowe>
+      <Email>buchhaltung@cafe-morgenrot.example</Email>
+    </DaneKontaktowe>
+    <NrKlienta>K-1007</NrKlienta>
+    <IDNabywcy>NAB-0001</IDNabywcy>
+    <JST>1</JST>
+    <GV>1</GV>
+  </Podmiot2>
+  <Podmiot3>
+    <IDNabywcy>NAB-0002</IDNabywcy>
+    <NrEORI>PL999536654700000</NrEORI>
+    <DaneIdentyfikacyjne>
+      <IDWew>9995366547-00012</IDWew>
+      <Nazwa>Szkoła Testowa nr 12</Nazwa>
+    </DaneIdentyfikacyjne>
+    <Adres>
+      <KodKraju>PL</KodKraju>
+      <AdresL1>ul. Akacjowa 200</AdresL1>
+    </Adres>
+    <AdresKoresp>
+      <KodKraju>PL</KodKraju>
+      <AdresL1>ul. Akacjowa 201</AdresL1>
+    </AdresKoresp>
+    <DaneKontaktowe>
+      <Email>sekretariat@szkola-testowa.example</Email>
+      <Telefon>666888999</Telefon>
+    </DaneKontaktowe>
+    <Rola>8</Rola>
+    <Udzial>50.5</Udzial>
+    <NrKlienta>S-12</NrKlienta>
+  </Podmiot3>
+  <Podmiot3>
+    <DaneIdentyfikacyjne>
+      <KodKraju>CH</KodKraju>
+      <NrID>CHE-123.456.789</NrID>
+    </DaneIdentyfikacyjne>
+    <RolaInna>1</RolaInna>
+    <OpisRoli>Gwarant</OpisRoli>
+    <Udzial>100</Udzial>
+  </Podmiot3>
+  <Podmiot3>
+    <DaneIdentyfikacyjne>
+      <BrakID>1</BrakID>
+    </DaneIdentyfikacyjne>
+    <Rola>11</Rola>
+  </Podmiot3>
+  <PodmiotUpowazniony>
+    <NrEORI>PL999645545400000</NrEORI>
+    <DaneIdentyfikacyjne>
+      <NIP>9996455454</NIP>
+      <Nazwa>Biuro Rachunkowe Zmyślone S.A.</Nazwa>
+    </DaneIdentyfikacyjne>
+    <Adres>
+      <KodKraju>PL</KodKraju>
+      <AdresL1>ul. Księgowa 3</AdresL1>
+    </Adres>
+    <AdresKoresp>
+      <KodKraju>PL</KodKraju>
+      <AdresL1>ul. Księgowa 4</AdresL1>
+    </AdresKoresp>
+    <DaneKontaktowe>
+      <EmailPU>kontakt@biuro-zmyslone.example</EmailPU>
+      <TelefonPU>221234567</TelefonPU>
+    </DaneKontaktowe>
+    <RolaPU>2</RolaPU>
+  </PodmiotUpowazniony>
+  <Fa>
+    <KodWaluty>EUR</KodWaluty>
+    <P_1>2026-10-08</P_1>
+    <P_1M>Warszawa</P_1M>
+    <P_2>KOR/2026/10/099</P_2>
+    <WZ>WZ/2026/551</WZ>
+    <WZ>WZ/2026/552</WZ>
+    <OkresFa>
+      <P_6_Od>2026-09-01</P_6_Od>
+      <P_6_Do>2026-09-30</P_6_Do>
+    </OkresFa>
+    <P_13_1>1000.00</P_13_1>
+    <P_14_1>230.00</P_14_1>
+    <P_14_1W>989.00</P_14_1W>
+    <P_13_2>100</P_13_2>
+    <P_14_2>8</P_14_2>
+    <P_14_2W>34.4</P_14_2W>
+    <P_13_3>200.00</P_13_3>
+    <P_14_3>10.00</P_14_3>
+    <P_14_3W>43.00</P_14_3W>
+    <P_13_4>50.00</P_13_4>
+    <P_14_4>2.00</P_14_4>
+    <P_14_4W>8.60</P_14_4W>
+    <P_13_5>10.00</P_13_5>
+    <P_14_5>1.90</P_14_5>
+    <P_13_6_1>1.00</P_13_6_1>
+    <P_13_6_2>2.00</P_13_6_2>
+    <P_13_6_3>3.00</P_13_6_3>
+    <P_13_7>4.00</P_13_7>
+    <P_13_8>5.00</P_13_8>
+    <P_13_9>6.00</P_13_9>
+    <P_13_10>7.00</P_13_10>
+    <P_13_11>-8.00</P_13_11>
+    <P_15>1631.90</P_15>
+    <KursWalutyZ>4.300000</KursWalutyZ>
+    <Adnotacje>
+      <P_16>1</P_16>
+      <P_17>1</P_17>
+      <P_18>1</P_18>
+      <P_18A>1</P_18A>
+      <Zwolnienie>
+        <P_19>1</P_19>
+        <P_19B>art. 132 ust. 1 lit. i dyrektywy 2006/112/WE</P_19B>
+      </Zwolnienie>
+      <NoweSrodkiTransportu>
+        <P_22>1</P_22>
+        <P_42_5>2</P_42_5>
+        <NowySrodekTransportu>
+          <P_22A>2026-01-15</P_22A>
+          <P_NrWierszaNST>1</P_NrWierszaNST>
+          <P_22BMK>Marka</P_22BMK>
+          <P_22BMD>Model</P_22BMD>
+          <P_22BK>czerwony</P_22BK>
+          <P_22BNR>WX 12345</P_22BNR>
+          <P_22BRP>2026</P_22BRP>
+          <P_22B>1500</P_22B>
+          <P_22B1>VIN0000000000001</P_22B1>
+          <P_22BT>osobowy</P_22BT>
+        </NowySrodekTransportu>
+        <NowySrodekTransportu>
+          <P_22A>2026-02-01</P_22A>
+          <P_NrWierszaNST>2</P_NrWierszaNST>
+          <P_22C>12</P_22C>
+          <P_22C1>KADLUB-77</P_22C1>
+        </NowySrodekTransportu>
+        <NowySrodekTransportu>
+          <P_22A>2026-03-01</P_22A>
+          <P_NrWierszaNST>3</P_NrWierszaNST>
+          <P_22D>40</P_22D>
+        </NowySrodekTransportu>
+      </NoweSrodkiTransportu>
+      <P_23>1</P_23>
+      <PMarzy>
+        <P_PMarzy>1</P_PMarzy>
+        <P_PMarzy_3_1>1</P_PMarzy_3_1>
+      </PMarzy>
+    </Adnotacje>
+    <RodzajFaktury>KOR</RodzajFaktury>
+    <PrzyczynaKorekty>Błąd w cenie</PrzyczynaKorekty>
+    <TypKorekty>2</TypKorekty>
+    <DaneFaKorygowanej>
+      <DataWystFaKorygowanej>2026-09-30</DataWystFaKorygowanej>
+      <NrFaKorygowanej>FV/2026/09/100</NrFaKorygowanej>
+      <NrKSeF>1</NrKSeF>
+      <NrKSeFFaKorygowanej>9991002009-20260930-0A1B2C-3D4E5F-A7</NrKSeFFaKorygowanej>
+    </DaneFaKorygowanej>
+    <DaneFaKorygowanej>
+      <DataWystFaKorygowanej>2026-08-31</DataWystFaKorygowanej>
+      <NrFaKorygowanej>FV/2026/08/077</NrFaKorygowanej>
+      <NrKSeFN>1</NrKSeFN>
+    </DaneFaKorygowanej>
+    <OkresFaKorygowanej>III kwartał 2026</OkresFaKorygowanej>
+    <NrFaKorygowany>FV/2026/09/100A</NrFaKorygowany>
+    <Podmiot1K>
+      <PrefiksPodatnika>PL</PrefiksPodatnika>
+      <DaneIdentyfikacyjne>
+        <NIP>9991002009</NIP>
+        <Nazwa>Stolarnia Przykładowa</Nazwa>
+      </DaneIdentyfikacyjne>
+      <Adres>
+        <KodKraju>PL</KodKraju>
+        <AdresL1>ul. Stara 1</AdresL1>
+      </Adres>
+    </Podmiot1K>
+    <Podmiot2K>
+      <DaneIdentyfikacyjne>
+        <NIP>9995366547</NIP>
+        <Nazwa>Kawiarnia Testowa</Nazwa>
+      </DaneIdentyfikacyjne>
+      <Adres>
+        <KodKraju>PL</KodKraju>
+        <AdresL1>ul. Lipowa 8</AdresL1>
+      </Adres>
+      <IDNabywcy>NAB-0001</IDNabywcy>
+    </Podmiot2K>
+    <P_15ZK>100.00</P_15ZK>
+    <KursWalutyZK>4.25</KursWalutyZK>
+    <ZaliczkaCzesciowa>
+      <P_6Z>2026-09-10</P_6Z>
+      <P_15Z>123.00</P_15Z>
+      <KursWalutyZW>4.2811</KursWalutyZW>
+    </ZaliczkaCzesciowa>
+    <FP>1</FP>
+    <TP>1</TP>
+    <DodatkowyOpis>
+      <NrWiersza>1</NrWiersza>
+      <Klucz>Informacja</Klucz>
+      <Wartosc>Tekst dodatkowy</Wartosc>
+    </DodatkowyOpis>
+    <DodatkowyOpis>
+      <Klucz>Tytuł płatności</Klucz>
+      <Wartosc>KOR/2026/10/099</Wartosc>
+    </DodatkowyOpis>
+    <FakturaZaliczkowa>
+      <NrKSeFZN>1</NrKSeFZN>
+      <NrFaZaliczkowej>ZAL/2026/09/01</NrFaZaliczkowej>
+    </FakturaZaliczkowa>
+    <FakturaZaliczkowa>
+      <NrKSeFFaZaliczkowej>9991002009-20260910-0A1B2C3D4E5F-A7</NrKSeFFaZaliczkowej>
+    </FakturaZaliczkowa>
+    <ZwrotAkcyzy>1</ZwrotAkcyzy>
+    <FaWiersz>
+      <NrWierszaFa>1</NrWierszaFa>
+      <UU_ID>aaaa111133339990</UU_ID>
+      <P_6A>2026-09-03</P_6A>
+      <P_7>Lada dębowa na wymiar</P_7>
+      <Indeks>LD-320</Indeks>
+      <GTIN>5909990000015</GTIN>
+      <PKWiU>31.01.12.0</PKWiU>
+      <CN>9403 60 10</CN>
+      <PKOB>1220</PKOB>
+      <P_8A>szt.</P_8A>
+      <P_8B>10</P_8B>
+      <P_9A>100.12345678</P_9A>
+      <P_9B>123.15</P_9B>
+      <P_10>1.2345</P_10>
+      <P_11>1000.00</P_11>
+      <P_11A>1230.00</P_11A>
+      <P_11Vat>230.00</P_11Vat>
+      <P_12>23</P_12>
+      <P_12_XII>19.5</P_12_XII>
+      <P_12_Zal_15>1</P_12_Zal_15>
+      <KwotaAkcyzy>0.10</KwotaAkcyzy>
+      <GTU>GTU_05</GTU>
+      <Procedura>I_42</Procedura>
+      <KursWaluty>4.300000</KursWaluty>
+      <StanPrzed>1</StanPrzed>
+    </FaWiersz>
+    <FaWiersz>
+      <NrWierszaFa>2</NrWierszaFa>
+      <P_7>Usługa</P_7>
+      <P_8B>-0.333</P_8B>
+      <P_9A>0</P_9A>
+      <P_11>-12.5</P_11>
+      <P_12>np II</P_12>
+    </FaWiersz>
+    <Rozliczenie>
+      <Obciazenia>
+        <Kwota>10.00</Kwota>
+        <Powod>Odsetki</Powod>
+      </Obciazenia>
+      <SumaObciazen>10.00</SumaObciazen>
+      <Odliczenia>
+        <Kwota>5.00</Kwota>
+        <Powod>Nadpłata</Powod>
+      </Odliczenia>
+      <SumaOdliczen>5.00</SumaOdliczen>
+      <DoRozliczenia>1636.90</DoRozliczenia>
+    </Rozliczenie>
+    <Platnosc>
+      <ZnacznikZaplatyCzesciowej>1</ZnacznikZaplatyCzesciowej>
+      <ZaplataCzesciowa>
+        <KwotaZaplatyCzesciowej>100.00</KwotaZaplatyCzesciowej>
+        <DataZaplatyCzesciowej>2026-10-01</DataZaplatyCzesciowej>
+        <FormaPlatnosci>6</FormaPlatnosci>
+      </ZaplataCzesciowa>
+      <ZaplataCzesciowa>
+        <KwotaZaplatyCzesciowej>50.00</KwotaZaplatyCzesciowej>
+        <DataZaplatyCzesciowej>2026-10-02</DataZaplatyCzesciowej>
+        <PlatnoscInna>1</PlatnoscInna>
+        <OpisPlatnosci>Kompensata</OpisPlatnosci>
+      </ZaplataCzesciowa>
+      <TerminPlatnosci>
+        <Termin>2026-10-22</Termin>
+        <TerminOpis>
+          <Ilosc>14</Ilosc>
+          <Jednostka>dni</Jednostka>
+          <ZdarzeniePoczatkowe>od daty wystawienia faktury</ZdarzeniePoczatkowe>
+        </TerminOpis>
+      </TerminPlatnosci>
+      <TerminPlatnosci/>
+      <PlatnoscInna>1</PlatnoscInna>
+      <OpisPlatnosci>Barter</OpisPlatnosci>
+      <RachunekBankowy>
+        <NrRB>PL61109010140000071219812874</NrRB>
+        <SWIFT>WBKPPLPPXXX</SWIFT>
+        <RachunekWlasnyBanku>3</RachunekWlasnyBanku>
+        <NazwaBanku>Bank Przykładowy S.A.</NazwaBanku>
+        <OpisRachunku>EUR</OpisRachunku>
+      </RachunekBankowy>
+      <RachunekBankowyFaktora>
+        <NrRB>73111111111111111111111111</NrRB>
+      </RachunekBankowyFaktora>
+      <Skonto>
+        <WarunkiSkonta>Zapłata w ciągu 7 dni</WarunkiSkonta>
+        <WysokoscSkonta>2%</WysokoscSkonta>
+      </Skonto>
+      <LinkDoPlatnosci>https://platnosci.example.com/zaplac?nr=17&amp;IPKSeF=123abcDEF4567&amp;x=1#top</LinkDoPlatnosci>
+      <IPKSeF>123abcDEF4567</IPKSeF>
+    </Platnosc>
+    <WarunkiTransakcji>
+      <Umowy>
+        <DataUmowy>2025-12-01</DataUmowy>
+        <NrUmowy>UM-2026-11</NrUmowy>
+      </Umowy>
+      <Umowy/>
+      <Zamowienia>
+        <DataZamowienia>2026-08-26</DataZamowienia>
+        <NrZamowienia>ZAM/2026/441</NrZamowienia>
+      </Zamowienia>
+      <NrPartiiTowaru>P-2026-08</NrPartiiTowaru>
+      <WarunkiDostawy>CIP</WarunkiDostawy>
+      <KursUmowny>4.3</KursUmowny>
+      <WalutaUmowna>USD</WalutaUmowna>
+      <Transport>
+        <RodzajTransportu>3</RodzajTransportu>
+        <Przewoznik>
+          <DaneIdentyfikacyjne>
+            <NIP>9997544361</NIP>
+            <Nazwa>Jan Fikcyjny Transport</Nazwa>
+          </DaneIdentyfikacyjne>
+          <AdresPrzewoznika>
+            <KodKraju>PL</KodKraju>
+            <AdresL1>ul. Bukowa 5</AdresL1>
+          </AdresPrzewoznika>
+        </Przewoznik>
+        <NrZleceniaTransportu>TR-881</NrZleceniaTransportu>
+        <OpisLadunku>13</OpisLadunku>
+        <JednostkaOpakowania>paleta</JednostkaOpakowania>
+        <DataGodzRozpTransportu>2026-10-02T08:00:00</DataGodzRozpTransportu>
+        <DataGodzZakTransportu>2026-10-02T16:30:00Z</DataGodzZakTransportu>
+        <WysylkaZ>
+          <KodKraju>PL</KodKraju>
+          <AdresL1>ul. Sadowa 1</AdresL1>
+        </WysylkaZ>
+        <WysylkaPrzez>
+          <KodKraju>CZ</KodKraju>
+          <AdresL1>Praha</AdresL1>
+        </WysylkaPrzez>
+        <WysylkaDo>
+          <KodKraju>DE</KodKraju>
+          <AdresL1>Lindenstraße 8</AdresL1>
+        </WysylkaDo>
+      </Transport>
+      <Transport>
+        <TransportInny>1</TransportInny>
+        <OpisInnegoTransportu>kurier rowerowy</OpisInnegoTransportu>
+        <LadunekInny>1</LadunekInny>
+        <OpisInnegoLadunku>koperta</OpisInnegoLadunku>
+      </Transport>
+      <PodmiotPosredniczacy>1</PodmiotPosredniczacy>
+    </WarunkiTransakcji>
+    <Zamowienie>
+      <WartoscZamowienia>1230.00</WartoscZamowienia>
+      <ZamowienieWiersz>
+        <NrWierszaZam>1</NrWierszaZam>
+        <UU_IDZ>zam-1</UU_IDZ>
+        <P_7Z>Lada dębowa</P_7Z>
+        <IndeksZ>LD-320</IndeksZ>
+        <GTINZ>5909990000015</GTINZ>
+        <PKWiUZ>31.01.12.0</PKWiUZ>
+        <CNZ>9403 60 10</CNZ>
+        <PKOBZ>1220</PKOBZ>
+        <P_8AZ>szt.</P_8AZ>
+        <P_8BZ>10</P_8BZ>
+        <P_9AZ>100</P_9AZ>
+        <P_11NettoZ>1000.00</P_11NettoZ>
+        <P_11VatZ>230.00</P_11VatZ>
+        <P_12Z>23</P_12Z>
+        <P_12Z_XII>21</P_12Z_XII>
+        <P_12Z_Zal_15>1</P_12Z_Zal_15>
+        <GTUZ>GTU_13</GTUZ>
+        <ProceduraZ>TT_D</ProceduraZ>
+        <KwotaAkcyzyZ>0.00</KwotaAkcyzyZ>
+        <StanPrzedZ>1</StanPrzedZ>
+      </ZamowienieWiersz>
+    </Zamowienie>
+  </Fa>
+  <Stopka>
+    <Informacje>
+      <StopkaFaktury>Kapitał zakładowy 50 000 zł
+druga linia stopki</StopkaFaktury>
+    </Informacje>
+    <Informacje/>
+    <Rejestry>
+      <PelnaNazwa>Stolarnia Przykładowa Spółka z ograniczoną odpowiedzialnością</PelnaNazwa>
+      <KRS>0000999001</KRS>
+      <REGON>99910020090001</REGON>
+      <BDO>000099999</BDO>
+    </Rejestry>
+    <Rejestry>
+      <REGON>999100200</REGON>
+    </Rejestry>
+  </Stopka>
+  <Zalacznik>
+    <BlokDanych>
+      <ZNaglowek>Zestawienie zużycia</ZNaglowek>
+      <MetaDane>
+        <ZKlucz>Okres</ZKlucz>
+        <ZWartosc>wrzesień 2026</ZWartosc>
+      </MetaDane>
+      <Tekst>
+        <Akapit>Pierwszy akapit.</Akapit>
+        <Akapit>Drugi akapit.</Akapit>
+      </Tekst>
+      <Tabela>
+        <TMetaDane>
+          <TKlucz>Licznik</TKlucz>
+          <TWartosc>L-1</TWartosc>
+        </TMetaDane>
+        <Opis>Odczyty</Opis>
+        <TNaglowek>
+          <Kol Typ="date">
+            <NKom>Data</NKom>
+          </Kol>
+          <Kol Typ="dec">
+            <NKom>Zużycie</NKom>
+          </Kol>
+          <Kol Typ="txt">
+            <NKom/>
+          </Kol>
+        </TNaglowek>
+        <Wiersz>
+          <WKom>2026-09-01</WKom>
+          <WKom>12.5</WKom>
+          <WKom/>
+        </Wiersz>
+        <Wiersz>
+          <WKom>2026-09-30</WKom>
+          <WKom>14.0</WKom>
+          <WKom>odczyt zdalny</WKom>
+        </Wiersz>
+        <Suma>
+          <SKom>Razem</SKom>
+          <SKom>26.5</SKom>
+        </Suma>
+      </Tabela>
+    </BlokDanych>
+    <BlokDanych>
+      <MetaDane>
+        <ZKlucz>Uwagi</ZKlucz>
+        <ZWartosc>brak</ZWartosc>
+      </MetaDane>
+    </BlokDanych>
+  </Zalacznik>
+</Faktura>

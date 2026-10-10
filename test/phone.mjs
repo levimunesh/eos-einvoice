@@ -1,0 +1,12 @@
+import { open } from './browser.mjs';
+const out = '/home/claude/eos/build/shots';
+const { browser, page, logs } = await open({ width: 400, height: 860 });
+await page.waitForSelector('#side-verdict .seal.ok', { timeout: 30000 }); await page.waitForTimeout(400);
+await page.screenshot({ path: `${out}/phone-1.png` });
+await page.evaluate(() => document.querySelector('#lines').scrollIntoView()); await page.waitForTimeout(200); await page.screenshot({ path: `${out}/phone-2.png` });
+await page.evaluate(() => document.querySelector('#side').scrollIntoView()); await page.waitForTimeout(200); await page.screenshot({ path: `${out}/phone-3.png` });
+await page.click('#tab-validate'); await page.waitForSelector('#view-validate .finding', { timeout: 30000 }); await page.evaluate(() => window.scrollTo(0, 0)); await page.screenshot({ path: `${out}/phone-4.png`, fullPage: false });
+await page.click('#tab-receive'); await page.waitForSelector('#view-receive .paper', { timeout: 30000 }); await page.evaluate(() => document.querySelector('#view-receive .paper').scrollIntoView()); await page.waitForTimeout(200); await page.screenshot({ path: `${out}/phone-5.png` });
+const of = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth }));
+console.log('overflow', JSON.stringify(of), logs);
+await browser.close();

@@ -1,0 +1,95 @@
+// Per-country settings: what the law asks for, which file is produced, which fields the form shows, and local defaults.
+const EU_CURRENCIES = ['EUR', 'CHF', 'USD', 'GBP', 'PLN', 'CZK', 'DKK', 'SEK'];
+
+export const COUNTRY = {
+  DE: {
+    name: 'Germany', currency: 'EUR', currencies: EU_CURRENCIES, taxName: 'VAT', vatRates: ['19', '7'], pdfLangs: [['de', 'Deutsch'], ['en', 'English']],
+    formats: 'ZUGFeRD, XRechnung, EN 16931', fileWord: 'ZUGFeRD or XRechnung',
+    lead: 'Upload your Word, Excel or PDF invoice, check the details, and save a file that meets the German e-invoicing rules.',
+    law: 'Every German business has had to be able to receive e-invoices since 1 January 2025. Issuing them to other German businesses becomes mandatory on 1 January 2027 above €800,000 annual turnover and on 1 January 2028 for everyone.',
+    retentionYears: 8, retentionFrom: 'yearEnd',
+    retentionText: 'German law (§ 14b UStG) asks you to keep invoices for 8 years after the end of the year they were issued, in the original electronic format. A printout or a PDF copy is not enough.',
+    typeCodes: ['380', '381', '384', '326', '389', '386', '875', '876', '877'], numberPh: 'RE-2026-0001',
+    vatOptions: [['S|19', '19 %'], ['S|7', '7 %'], ['S|other', 'Other rate'], ['Z|0', '0 % (zero rate)'], ['E|0', 'Exempt'], ['AE|0', 'Reverse charge'], ['K|0', 'Intra-EU supply'], ['G|0', 'Export'], ['O|0', 'Outside VAT']],
+    payMeans: ['58', '30', '59', '48', '10', '1'], payNames: { 30: 'Bank transfer (not SEPA)' }, termsPh: 'e.g. Zahlbar innerhalb von 14 Tagen ohne Abzug.',
+    smallBusiness: { label: 'I am a small business under § 19 UStG and charge no VAT (Kleinunternehmer)', short: 'No VAT (§ 19)', reason: 'Kein Ausweis von Umsatzsteuer, da Kleinunternehmer gemäß § 19 UStG', code: '' },
+    exemption: { AE: ['VATEX-EU-AE', 'Steuerschuldnerschaft des Leistungsempfängers (Reverse Charge)'], K: ['VATEX-EU-IC', 'Steuerfreie innergemeinschaftliche Lieferung'], G: ['VATEX-EU-G', 'Steuerfreie Ausfuhrlieferung'], O: ['VATEX-EU-O', 'Nicht steuerbarer Umsatz'], E: ['', 'Steuerbefreit'] },
+    sending: 'Send the file to your customer by email or any other way you both agree on. Germany does not require a platform.',
+    rules: 'EN 16931 validation artefacts 1.3.16 (CEN/TC 434); XRechnung 3.0.2 Schematron 2.6.0 with Peppol BIS Billing 3.0.21 rules (KoSIT); severity levels follow the KoSIT validator configuration of 31 August 2026.',
+  },
+  FR: {
+    name: 'France', currency: 'EUR', currencies: ['EUR'], taxName: 'VAT', vatRates: ['20', '10', '5.5', '2.1'], pdfLangs: [['fr', 'Français'], ['en', 'English']],
+    formats: 'Factur-X, UBL, CII with the French rules', fileWord: 'Factur-X',
+    lead: 'Upload your Word, Excel or PDF invoice, check the details, and save a Factur-X file that passes the French e-invoicing rules.',
+    law: 'Since 1 September 2026 every French business must be able to receive e-invoices, and large and mid-sized companies must issue them. Small and medium businesses and micro-entrepreneurs must issue them from 1 September 2027.',
+    retentionYears: 10, retentionFrom: 'yearEnd',
+    retentionText: 'French commercial law (Code de commerce, art. L123-22) asks businesses to keep accounting documents, invoices included, for 10 years from the end of the financial year; the tax office can ask for them for 6 years (LPF, art. L102 B). Keep electronic invoices in their original electronic form.',
+    typeCodes: ['380', '381', '384', '386', '389'], numberPh: 'F2026-0001',
+    vatOptions: [['S|20', '20 %'], ['S|10', '10 %'], ['S|5.5', '5.5 %'], ['S|2.1', '2.1 %'], ['S|other', 'Other rate'], ['Z|0', '0 % (zero rate)'], ['E|0', 'Exempt'], ['AE|0', 'Reverse charge'], ['K|0', 'Intra-EU supply'], ['G|0', 'Export'], ['O|0', 'Outside VAT']],
+    payMeans: ['58', '30', '59', '48', '10'], payNames: { 58: 'Bank transfer (SEPA)', 30: 'Bank transfer (other)' }, termsPh: 'e.g. Paiement à 30 jours par virement.',
+    smallBusiness: { label: 'I am under the VAT franchise (franchise en base de TVA) and charge no VAT', short: 'No VAT (art. 293 B)', reason: 'TVA non applicable, art. 293 B du CGI', code: 'VATEX-FR-FRANCHISE' },
+    exemption: { AE: ['VATEX-EU-AE', 'Autoliquidation'], K: ['VATEX-EU-IC', 'Livraison intracommunautaire exonérée, art. 262 ter I du CGI'], G: ['VATEX-EU-G', 'Exportation exonérée, art. 262 I du CGI'], O: ['VATEX-EU-O', 'Opération hors champ de la TVA'], E: ['', 'Exonération de TVA'] },
+    notes: { PMT: 'Indemnité forfaitaire pour frais de recouvrement en cas de retard de paiement : 40 €.', PMD: 'En cas de retard de paiement, des pénalités sont exigibles au taux de trois fois le taux d’intérêt légal.', AAB: 'Pas d’escompte pour paiement anticipé.' },
+    cadres: [['S1', 'Services'], ['B1', 'Goods'], ['M1', 'Goods and services'], ['S2', 'Services, already paid'], ['B2', 'Goods, already paid'], ['M2', 'Goods and services, already paid']],
+    natId: { label: 'SIREN', ph: '9 digits', buyerLabel: 'Customer SIREN', buyerPh: 'For French business customers' },
+    sending: 'In France an e-invoice only counts once it has gone through an approved platform (plateforme agréée); there is no public portal for this. Upload this file to the platform you have chosen: it delivers the invoice and reports it to the tax office.',
+    rules: 'EN 16931 validation artefacts 1.3.16 (CEN/TC 434); French BR-FR rules, Flux 2, Schematron 1.4.0.04 (FNFE-MPE, for AFNOR XP Z12-012).',
+  },
+  PL: {
+    name: 'Poland', currency: 'PLN', currencies: ['PLN'], taxName: 'VAT', vatRates: ['23', '8', '5'], pdfLangs: [],
+    formats: 'KSeF structured invoice FA(3)', fileWord: 'KSeF FA(3)',
+    lead: 'Upload your Word, Excel or PDF invoice, check the details, and save it in FA(3), the structure the Polish national system KSeF requires.',
+    law: 'Invoicing through KSeF has been mandatory for the largest companies since 1 February 2026 and for all other businesses since 1 April 2026. The smallest sellers (up to PLN 10,000 of invoices a month) have until the end of 2026.',
+    retentionYears: 10, retentionFrom: 'yearEnd',
+    retentionText: 'KSeF itself stores every invoice for 10 years, counted from the end of the year it was issued. A copy kept here is for your own records and for invoices issued outside KSeF.',
+    typeCodes: ['380', '381'], typeNames: { 380: 'Invoice (faktura VAT)', 381: 'Correction (faktura korygująca)' }, numberPh: 'FV/2026/10/001',
+    vatOptions: [['S|23', '23 %'], ['S|8', '8 %'], ['S|5', '5 %'], ['S|other', 'Other rate'], ['Z|0', '0 % (domestic)'], ['E|0', 'Exempt (zw)'], ['K|0', '0 % intra-EU supply (WDT)'], ['G|0', '0 % export'], ['AE|0', 'Reverse charge (np / oo)'], ['O|0', 'Outside Polish VAT (np)']],
+    payMeans: ['30', '10', '48'], payNames: { 30: 'Bank transfer (przelew)', 10: 'Cash (gotówka)', 48: 'Card (karta)' }, termsPh: 'e.g. Płatność przelewem w terminie 14 dni.',
+    noAllowances: true, noPrepaid: true,
+    smallBusiness: { label: 'I am exempt from VAT as a small taxpayer (zwolnienie podmiotowe, art. 113)', short: 'Exempt (zw)', reason: 'art. 113 ust. 1 ustawy o VAT', code: '' },
+    exemption: {},
+    natId: { label: 'NIP', ph: '10 digits', buyerLabel: 'Customer NIP', buyerPh: 'For Polish business customers' },
+    sending: 'In Poland an invoice is only issued once KSeF has accepted it and given it a KSeF number. This tool does not send it. Load this file in the ministry’s free Aplikacja Podatnika KSeF (“Wczytaj fakturę”) and issue it there under your own login, or send it with your own KSeF software.',
+    rules: 'Official FA(3) XML schema of the Polish Ministry of Finance, version 1-0E, with its base type schemas. Sums and tax-number check digits are extra checks of this tool, not official KSeF rules.',
+  },
+  AU: {
+    name: 'Australia', currency: 'AUD', currencies: ['AUD'], taxName: 'GST', vatRates: ['10'], pdfLangs: [],
+    formats: 'Peppol PINT A-NZ', fileWord: 'Peppol (PINT A-NZ)',
+    lead: 'Upload your Word, Excel or PDF invoice, check the details, and save it as a Peppol e-invoice in the Australian PINT A-NZ format.',
+    law: 'Australia does not oblige businesses to use e-invoices. Federal government agencies must be able to receive them, and a growing number of large buyers ask their suppliers for Peppol invoices.',
+    retentionYears: 5, retentionFrom: 'date',
+    retentionText: 'The Australian Taxation Office asks businesses to keep tax invoices and other records for 5 years from when they were prepared or the transaction was completed, whichever is later.',
+    typeCodes: ['380', '381'], typeNames: { 380: 'Tax invoice', 381: 'Adjustment note (credit)' }, numberPh: 'INV-2026-0001',
+    vatOptions: [['S|10', '10 % GST'], ['Z|0', 'GST-free'], ['E|0', 'Input-taxed'], ['G|0', 'Export (GST-free)']],
+    payMeans: ['30', '48', '10'], payNames: { 30: 'Bank transfer', 48: 'Card', 10: 'Cash' }, termsPh: 'e.g. Payment within 30 days.',
+    smallBusiness: { label: 'I am not registered for GST and charge none', short: 'No GST', reason: 'Supplier not registered for GST', code: '' },
+    exemption: {}, exemptionText: { Z: 'GST-free supply', E: 'Input-taxed supply', G: 'GST-free export', O: 'Not subject to GST' },
+    natId: { label: 'ABN', ph: '11 digits', buyerLabel: 'Customer ABN', buyerPh: '11 digits (NZBN for New Zealand)' },
+    sending: 'In Australia e-invoices travel over the Peppol network, addressed by ABN. This file is in the national PINT A-NZ format; your accounting software or a Peppol access-point provider has to deliver it. This tool does not send it.',
+    rules: 'Peppol PINT A-NZ billing rules 1.1.3 (shared PINT rules and the Australia / New Zealand rules, published for the ATO and MBIE); official UBL 2.1 XML schema.',
+  },
+  CA: {
+    name: 'Canada', currency: 'CAD', currencies: ['CAD', 'USD'], taxName: 'GST/HST', vatRates: ['5'], pdfLangs: [['en', 'English'], ['fr', 'Français']],
+    formats: 'No official e-invoice format: PDF invoice with the CRA details and a UBL 2.1 data file', fileWord: 'UBL',
+    lead: 'Upload your Word, Excel or PDF invoice, check the details, and save an invoice that carries everything the Canada Revenue Agency asks for, as a PDF with a UBL data file inside.',
+    law: 'Canada has no e-invoicing obligation and no official e-invoice format. What the Canada Revenue Agency does require is certain information on every invoice, so that your customer can claim back the GST/HST. This tool checks for that information.',
+    retentionYears: 6, retentionFrom: 'yearEnd',
+    retentionText: 'The Canada Revenue Agency asks you to keep records for 6 years from the end of the last tax year they relate to.',
+    typeCodes: ['380', '381'], typeNames: { 380: 'Invoice', 381: 'Credit note' }, numberPh: 'INV-2026-0001',
+    vatOptions: [['S|5', 'GST 5 %'], ['S|13', 'HST 13 % (Ontario)'], ['S|14', 'HST 14 % (Nova Scotia)'], ['S|15', 'HST 15 % (NB, NL, PEI)'], ['S|12', 'GST 5 % + PST 7 % (BC, Manitoba)'], ['S|11', 'GST 5 % + PST 6 % (Saskatchewan)'], ['S|14.975', 'GST 5 % + QST 9.975 % (Quebec)'], ['Z|0', 'Zero-rated (0 %)'], ['E|0', 'Exempt']],
+    // one combined rate per choice above, split into the taxes that must be shown separately on the invoice
+    taxParts: { 5: [['GST', '5']], 13: [['HST', '13']], 14: [['HST', '14']], 15: [['HST', '15']], 12: [['GST', '5'], ['PST', '7']], 11: [['GST', '5'], ['PST', '6']], 14.975: [['GST', '5'], ['QST', '9.975']] },
+    payMeans: ['30', '48', '10', '1'], payNames: { 30: 'Bank transfer (EFT)', 48: 'Card', 10: 'Cash', 1: 'Other (see payment terms)' }, termsPh: 'e.g. Net 30 days. Interac e-Transfer to accounts@example.ca',
+    smallBusiness: { label: 'I am a small supplier, not registered for GST/HST, and charge none', short: 'No GST/HST', reason: 'Small supplier: not registered for GST/HST, no tax charged', code: '' },
+    exemption: {}, exemptionText: { Z: 'Zero-rated supply', E: 'Exempt supply', G: 'Zero-rated export', O: 'No GST/HST charged' },
+    sending: 'Canada has no required e-invoice format and no delivery network. Send the PDF to your customer as usual. The UBL data file inside it is an international standard that some accounting systems can import; it is not a legal requirement.',
+    rules: 'Official UBL 2.1 XML schema (OASIS). The information checks follow the Canada Revenue Agency guide RC4022 (input tax credit information requirements) and are checks of this tool, not an official validator.',
+  },
+};
+export const COUNTRY_CODES = Object.keys(COUNTRY);
+export const cfg = code => COUNTRY[code] || COUNTRY.DE;
+// Until when an invoice has to be kept, by the rules of its country.
+export function keepUntilFor(code, issueDate, archivedAt) {
+  const c = cfg(code); const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(issueDate || '') || /^(\d{4})-(\d{2})-(\d{2})/.exec(new Date(archivedAt || Date.now()).toISOString());
+  return c.retentionFrom === 'date' ? `${Number(m[1]) + c.retentionYears}-${m[2]}-${m[3]}` : `${Number(m[1]) + c.retentionYears}-12-31`;
+}
